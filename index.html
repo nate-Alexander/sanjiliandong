@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="citydata.js"></script>
+</head>
+<body>
+	省份:<select name="" id="" class="one"></select>
+	市.区<select name="" id=""class="two"></select>
+	县<select name="" id=""class="three"></select>
+</body>
+<script>
+	var one=document.querySelector('.one');
+	var two=document.querySelector('.two');
+	var three=document.querySelector('.three');
+    one.onfocus=function(){
+    one.innerHTML+="<option>请输入省份</option>"
+    for(var i=0;i<provinceList.length;i++){
+     one.innerHTML+="<option>"+provinceList[i].name+"</option>"
+    } 
+      one.onfocus=null;
+
+    }
+
+    one.onchange=function(){
+    	var shiqulen=provinceList[one.selectedIndex-1].cityList.length;
+        two.innerHTML="";
+         three.innerHTML="";
+        for(var i=0;i<shiqulen;i++){
+  	     two.innerHTML+= "<option>"+provinceList[one.selectedIndex-1].cityList[i].name;+"</option>"	;
+         }
+    
+   
+
+    }
+    two.onchange=function(){
+    	var xianchenlen=provinceList[one.selectedIndex-1].cityList[two.selectedIndex].areaList.length;
+    	 three.innerHTML=""
+    	   for(var i=0;i<xianchenlen;i++){
+  	     three.innerHTML+= "<option>"+provinceList[one.selectedIndex-1].cityList[two.selectedIndex].areaList[i]+"</option>"	;
+         }
+    }
+    //关键就是求数组的length
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+/*var bigdata=[
+{shengfen:'湖南',chengshi:[{name:'长沙',quyu:['马栏山','星沙区']},{name:'长沙',quyu:['马栏山','星沙区']},{name:'长沙',quyu:['马栏山','星沙区']}]},
+]*/
+</script>
